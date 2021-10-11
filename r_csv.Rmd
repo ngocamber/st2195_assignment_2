@@ -1,0 +1,17 @@
+install.packages("tidyverse")
+
+install.packages("rvest")
+
+
+library(rvest)
+
+url <- read_html("https://en.wikipedia.org/wiki/Comma-separated_values")
+
+table <- url %>%html_table()
+table1 <- table[[2]]
+
+df <- data.frame(table1)
+df
+
+write.csv(df, "car example.csv")
+
